@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-bh7fo$n&!^v5wfkl_hr_yjt!6%_b!6rheupzkcr3+=em*sq_a!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://makaan.in',
+]
 
 # Application definition
 
@@ -113,6 +116,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+
+# To solve static files load issue on aws
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("text/html", ".html", True)
+mimetypes.add_type("text/javascript", ".js", True)
+mimetypes.add_type("text/css", ".min.css", True)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
