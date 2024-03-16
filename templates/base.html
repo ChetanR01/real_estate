@@ -72,18 +72,18 @@
                         </div>
                         <a href="/calculator" class="nav-item nav-link">Calculator</a>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
+                        {% if user.is_authenticated %}
+                        <div>
+                            <a href="/add_property" style="margin-right: 30px;" class="nav-item nav-link">Add Property</a>
+                        </div>
+                        <a href="/logout" class="nav-item nav-link">LogOut</a>
+                        {% else %}
+                        <div>
+                            <a href="/signup" style="margin-right: 30px;" class="nav-item nav-link">Sign Up</a>
+                        </div>
+                        <a href="/login" class="nav-item nav-link">Login</a>
+                        {% endif %}
                     </div>
-                    {% if user.is_authenticated %}
-                    <div>
-                        <a href="/add_property" style="margin-right: 5px;" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
-                    </div>
-                    <a href="/logout" class="btn btn-primary px-3 d-none d-lg-flex">LogOut</a>
-                    {% else %}
-                    <div>
-                    <a href="/signup" style="margin-right: 5px;" class="btn btn-primary px-3 d-none d-lg-flex">Sign Up</a>
-                    </div>
-                    <a href="/login" class="btn btn-primary px-3 d-none d-lg-flex">Login</a>
-                    {% endif %}
                 </div>
             </nav>
         </div>
