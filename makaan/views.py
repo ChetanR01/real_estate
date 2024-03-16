@@ -12,6 +12,7 @@ def index(request):
 def add_property(request):
     if request.method == "POST" and request.FILES['image']:
         title = request.POST['title']
+        phone_no = request.POST['phone_no']
         description = request.POST['description']
         property_type = request.POST['type']
         status = request.POST['status']
@@ -26,11 +27,11 @@ def add_property(request):
         address = request.POST['address']
         image = request.FILES['image']
 
-        new_pro = Properties.objects.create(title=title, description=description, property_type=property_type, property_status=status, location=location, bedrooms=bedrooms,bathrooms=bathrooms,floors=floors,garages=garages,area=area,price=price,map_link=map_link,address=address,image=image)
+        new_pro = Properties.objects.create(title=title, phone_no=phone_no, description=description, property_type=property_type, property_status=status, location=location, bedrooms=bedrooms,bathrooms=bathrooms,floors=floors,garages=garages,area=area,price=price,map_link=map_link,address=address,image=image)
 
         print("New Property Created !!!",new_pro)
 
-        return redirect('/add_property')
+        return redirect('/')
     return render(request,'add_property.html',{})
 
 def search_property(request):

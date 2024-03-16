@@ -3,6 +3,7 @@ from datetime import date
 # Create your models here.
 class Properties(models.Model):
     title = models.CharField(max_length=50)
+    phone_no = models.CharField(max_length=50)
     description = models.TextField()
     types_list = [
         ('apartment', 'Apartment'),
